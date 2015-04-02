@@ -2,7 +2,19 @@
 require_once 'header.php';
 ?>
 
-<div class="container">
+<!-- Código para buscar as cidades e estados -->
+<meta http-equiv="Content-Type" content="text/html" charset="ISO-8859-1" />
+<script type="text/javascript" src="./functions/libraries/cidades-estados-v0.2.js" charset="ISO-8859-1">
+</script>
+<script type="text/javascript">
+  window.onload = function() {
+   new dgCidadesEstados(document.getElementById('estado'), document.getElementById('cidade'), true);}
+ </script>
+
+
+ <title>Cadastro Estagio</title>
+
+ <div class="container">
   <div class="jumbotron">
     <h1>
       <span><i class="fa fa-user"></i></span>
@@ -13,35 +25,33 @@ require_once 'header.php';
           <div class="form-group">
             <label for="inputNome" class="col-lg-2 control-label">Nome</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" name="nome" id="inputNome" placeholder="Digite Seu Nome Completo" required>
+              <input type="text" class="form-control" name="nome" id="inputNome" placeholder="Digite Seu Nome Completo">
             </div>
           </div>
-
+          
           <div class="form-group">
-            <label for="inputCarteiraDeIdentidade" class="col-lg-2 control-label">Carteira de Identidade</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" name="rg" id="inputCarteiraDeIdentidade" placeholder="Uasr Mascara">
+            <label for="inputRG" class="col-lg-2 control-label">Carteira de Identidade</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control" name="RG" id="inputRG" placeholder="Insira seu RG">
             </div>
-          </div>
-
-          <div class="form-group">
             <label for="inputDataNascimento" class="col-lg-2 control-label">Data de Nascimento</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" name="data_nasc" id="inputDataNascimento data" placeholder="USAR MASCARA">
+            <div class="col-lg-3">
+              <input type="date" class="form-control" name="DataNascimento" id="inputDataNascimento" placeholder="">
+            </div>
+            <label for="inputCPF" class="col-lg-1 control-label">CPF</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control numero" name="CPF" id="inputCPF" placeholder="Insira seu CPF">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputCPF" class="col-lg-2 control-label">CPF</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" name="cpf" id="inputCPF cpf" placeholder="USAR MASCARA">
+            <label for="inputCarteiraTrabalho" class="col-lg-2 control-label">Carteira Profissional N°</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control numero" name="CarteiraTrabalho" id="inputCarteiraTrabalho" placeholder="">
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="inputNome" class="col-lg-2 control-label">Carteira Profissional Nº</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control numero" name="" id="inputNome" placeholder="USAR MASCARA">
+            <label for="inputCarteiraTrabalhoSerie" class="col-lg-1 control-label">Série</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control numero" name="CarteiraTrabalhoSerie" id="inputCarteiraTrabalhoSerie" placeholder="">
             </div>
           </div>
 
@@ -49,44 +59,47 @@ require_once 'header.php';
           <hr>
 
           <div class="form-group">    
-            <label for="inputEmail" class="col-lg-2 control-label">Endereço</label>
-            <div class="col-lg-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Logradouro, CEP">
+            <label for="inputEndereco" class="col-lg-2 control-label">Endereço</label>
+            <div class="col-lg-7">
+              <input type="text" class="form-control" name="Endereco" id="inputEndereco" placeholder="Digite seu endereço completo">
             </div>
-
-            <label for="inputNome" class="col-lg-1 control-label">Nº</label>
-            <div class="col-lg-3">
-              <input type="text" class="form-control numero" id="inputNumero" placeholder="Nº">
+            <label for="inputEnderecoNumero" class="col-lg-1 control-label">Nº</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control numero" name="EnderecoNumero" id="inputEnderecoNumero" placeholder="Nº">
             </div>
           </div>
-
-
 
           <div class="form-group">
             <label for="inputBairro" class="col-lg-2 control-label">Bairro</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="inputBairro" placeholder="Digite o seu Bairro">
+            <div class="col-lg-7">
+              <input type="text" class="form-control" name="Bairro" id="inputBairro" placeholder="Digite o seu Bairro">
+            </div>
+
+            <label for="inputCEP" class="col-lg-1 control-label">CEP</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control" name="CEP" id="inputCEP" placeholder="CEP">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputCidade" class="col-lg-2 control-label">Cidade</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="inputNome" placeholder="Digite Sua Cidade">
+            <label for="select" class="col-lg-2 control-label">Logradouro</label>      
+            <div class="col-lg-6">
+              <select class="form-control" id="estado" name="estado">
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <select class="form-control" id="cidade" name="cidade">
+              </select>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="inputCEP" class="col-lg-2 control-label">CEP</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="inputCEP cep" placeholder="CEP">
-            </div>
-          </div>
+          <h4>Curso</h4>
+          <hr>
 
           <div class="form-group">
             <label for="select" class="col-lg-2 control-label">Curso</label>
-            <div class="col-lg-5">
-              <select class="form-control" id="select">
+            <div class="col-lg-6">
+              <select class="form-control" name="Curso" id="select">
                 <option>Administração</option>
                 <option>Arquitetura e Urbanismo</option>
                 <option>Biologia</option>
@@ -94,7 +107,8 @@ require_once 'header.php';
                 <option>Ciência da Computação</option>
                 <option>Ciências Contábeis</option>
                 <option>Direito</option>
-                <option>Educação Física</option>
+                <option>Educação Física – Licenciatura</option>
+                <option>Educação Física – Bacharelado</option>
                 <option>Enfermagem</option>
                 <option>Engenharia Civil</option>
                 <option>Engenharia de Alimentos</option>
@@ -107,7 +121,9 @@ require_once 'header.php';
                 <option>Fotografia</option>
                 <option>História</option>
                 <option>Jornalismo</option>
-                <option>Letras</option>
+                <option>Letras – Espanhol</option>
+                <option>Letras – Inglês</option>
+                <option>Letras – Português</option>
                 <option>Medicina Veterinária</option>
                 <option>Matemática</option>
                 <option>Odontologia</option>
@@ -117,56 +133,94 @@ require_once 'header.php';
                 <option>Radiologia</option>
               </select>
             </div>
-
-            <div class="col-md-5">
-              <select multiple="" class="form-control">
-                <option>Bacharelado</option>
-                <option>Tecnólogo</option>
-                <option>Engenharia</option>
-                <option>Licenciatura</option>
-              </select>
+            <label for="inputMatricula" class="col-lg-1 control-label">Matricula</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control numero" name="Matricula" id="inputMatricula" placeholder="Nº">
             </div>
-          </div>
-
-
-          <div class="form-group">
-            <label for="inputNome" class="col-lg-2 control-label">Matricula</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control numero" id="inputNome" placeholder="Nº">
-            </div>
-          </div>
+          </div>    
 
           <div class="form-group">
             <label for="inputFase" class="col-lg-2 control-label">Fase</label>
+            <div class="col-lg-1">
+              <input type="text" class="form-control numero"name="Fase" id="inputFase" placeholder="Nº">
+            </div>
+            <label for="inputSeguro" class="col-lg-1 control-label">Seguro</label>
             <div class="col-lg-2">
-              <input type="text" class="form-control numero" id="inputFase" placeholder="Nº">
+              <input type="text" class="form-control numero" name="Seguro"  id="inputSeguro" placeholder="Nº">
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="inputFase" class="col-lg-2 control-label">Seguro Nº</label>
-            <div class="col-lg-2">
-              <input type="text" class="form-control numero" id="inputFase" placeholder="Nº">
-            </div>
-          </div>
+          <h4>UCE</h4>
+          <hr>
 
           <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+            <label for="inputUCENome" class="col-lg-2 control-label">Razão Social</label>
             <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="textArea"></textarea>
-              <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+              <input type="text" class="form-control" name="CENome" id="inputUCENome" placeholder="Digite Seu Nome Completo" >
             </div>
           </div>
 
+          <div class="form-group">
+            <label for="inputUCECNPJ" class="col-lg-2 control-label">CNPJ</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" name="UCECNPJ" id="inputUCECNPJ" placeholder="CNPJ">
+            </div>
+            <label for="inputUCEEndereco" class="col-lg-1 control-label">Endereço</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" name="UCEEndereco" id="inputUCEEndereco" placeholder="Insira o Endereco da UCE">
+            </div>
+          </div>
 
           <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-              <button type="reset" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <label for="inputUCEDiretor" class="col-lg-2 control-label">Diretor ou Presidente da Unidade</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" name="UCEDiretor" id="inputUCEDiretor" placeholder="Insira o Nome Completo" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputUCEConvenio" class="col-lg-2 control-label">Termo de Convênio Nº </label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control" name="UCEConvenio" id="inputUCEConvenio" placeholder="N° Termo de Convênio" >
+            </div>
+          </div>
+
+          <h4>Orientador</h4>
+          <hr>
+
+          <div class="form-group">
+            <label for="inputNomeOrientador" class="col-lg-2 control-label">Nome</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" name="NomeOrientador" id="inputNomeOrientador" placeholder="Digite Seu Nome Completo" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputOrientadorEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" name="OrientadorEmail" id="inputOrientadorEmail" placeholder="Digite o Nome completo de seu Orientador" >
+            </div>
+            <label for="inputOrientadorTelefone" class="col-lg-1 control-label">Telefone</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control" name="OrientadorTelefone" id="inputOrientadorTelefone" placeholder="N°" >
+            </div>
+            <label for="inputOrientadorCelular" class="col-lg-1 control-label">Celular</label>
+            <div class="col-lg-2">
+              <input type="text" class="form-control" name="OrientadorCelular" id="inputOrientadorCelular" placeholder="Digite Seu Nome Completo" >
+            </div>
+          </div>
+
+          <h4>Supervisor Técnico</h4>
+          <hr>
+
+          <div class="form-group">
+            <div class="col-lg-5 col-lg-offset-5">
+              <button type="reset" class="btn btn-default">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
           </div>
         </fieldset>
       </form>
+      
 
       <?php 
       require_once 'footer.php';
@@ -174,8 +228,6 @@ require_once 'header.php';
 
       <script type="text/javascript" src="js/mascaras/jquery.validate.min.js"></script>
       <script src="js/mascaras/jquery.maskedinput.js" type="text/javascript"></script>
-      <!-- END PAGE LEVEL SCRIPTS -->
-
       <script>
         $(document).ready(function() {
             //attach keypress to input
@@ -196,11 +248,24 @@ require_once 'header.php';
           });
 
         jQuery(function ($) {
-          $("#data").mask("99/99/9999", {placeholder: "dd/mm/aaaa"});
+
           $("#telefone").mask("(99) 9999-9999?9");
-          $("#cpf").mask("999.999.999-99");
-          $("#cep").mask("99999-999");
+          $("#inputCPF").mask("999.999.999-99");
+          $("#inputCEP").mask("99999-999");
+
+          $("#inputRG").mask("99.999.999-9");
+          $("#inputCarteiraTrabalho").mask("9999999");
+          $("#inputCarteiraTrabalhoSerie").mask("9999-9");
+          $("#inputEnderecoNumero").mask("999999");
+          $("#inputMatricula").mask("999999");
+          $("#inputFase").mask("99");
+          $("#inputSeguro").mask("999999");
+          $("#inputUCECNPJ").mask("999.999.999/9999-99");
+          $("#inputUCEConvenio").mask("99999/9999")
+          $("#inputOrientadorCelular").mask("(99) 9999-9999?9");
+          $("#inputOrientadorTelefone").mask("(99) 9999-9999?9");
+
+
         });
       </script>
-
       </html>
